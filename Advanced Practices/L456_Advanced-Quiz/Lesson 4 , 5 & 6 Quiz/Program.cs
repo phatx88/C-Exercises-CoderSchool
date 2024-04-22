@@ -63,34 +63,34 @@ Write a C# program to:
 - calculate and display the discount given (in percentage)
 - calculate and display the discount amount
 */
-Console.Write("Enter the amount spent ($): ");
-double amountSpent = Convert.ToDouble(Console.ReadLine());
+//Console.Write("Enter the amount spent ($): ");
+//double amountSpent = Convert.ToDouble(Console.ReadLine());
 
-// Calculate discount rate
-double discountRate;
-if (amountSpent <= 100)
-{
-    discountRate = 0;
-}
-else if (amountSpent <= 500)
-{
-    discountRate = 5;
-}
-else if (amountSpent <= 1000)
-{
-    discountRate = 10;
-}
-else
-{
-    discountRate = 20;
-}
+//// Calculate discount rate
+//double discountRate;
+//if (amountSpent <= 100)
+//{
+//    discountRate = 0;
+//}
+//else if (amountSpent <= 500)
+//{
+//    discountRate = 5;
+//}
+//else if (amountSpent <= 1000)
+//{
+//    discountRate = 10;
+//}
+//else
+//{
+//    discountRate = 20;
+//}
 
-// Calculate discount amount
-double discountAmount = (amountSpent * discountRate) / 100;
+//// Calculate discount amount
+//double discountAmount = (amountSpent * discountRate) / 100;
 
-// Display discount rate and discount amount
-Console.WriteLine($"Discount rate: {discountRate}%");
-Console.WriteLine($"Discount amount: ${discountAmount:F2}");
+//// Display discount rate and discount amount
+//Console.WriteLine($"Discount rate: {discountRate}%");
+//Console.WriteLine($"Discount amount: ${discountAmount:F2}");
 
 
 
@@ -120,7 +120,17 @@ Enter a number : 8
 11 88
 12 96
 */
+//Console.WriteLine("enter a number:");
+//int number = Convert.ToInt32(Console.ReadLine());
 
+//Console.WriteLine("multiplication table for " + number + ":");
+
+//for (int i = 1; i <= 12; i++)
+//{
+//    Console.WriteLine(i + "  " + (number * i));
+//}
+
+//Console.ReadLine(); //keep console open
 
 
 
@@ -138,7 +148,17 @@ Example:
 [0] Exit
 ---------------------------------
 */
-
+//int i = 1;
+//while (i != 0 ) {
+//Console.WriteLine("------------- MENU --------------\n[1] Calculate Body Mass Index\n[2] Calculate Discount\n[3] Display Multiplication Table\n[0] Exit\n---------------------------------");
+//Console.WriteLine("Enter a option (1-4): ");
+//i = Convert.ToInt32(Console.ReadLine());
+//    if (i == 1) Console.WriteLine("Calculate Body Mass Index ");
+//    else if (i == 2) Console.WriteLine("Calculate Discount");
+//    else if (i == 3) Console.WriteLine("Display Multiplication Table");
+//    else if (i == 0) Console.WriteLine("Exiting program, thank you for using! ");
+//    else { Console.WriteLine("Invalid option !"); }
+//}
 
 
 
@@ -164,6 +184,20 @@ List of words:
 Total number of letters: 16
 */
 
+//string word;
+//string Words = null;
+
+//for (int i = 1; i <= 5; i++)
+//{
+//    Console.WriteLine("Enter a word (or 'x' to stop): ");
+//    word = Console.ReadLine();
+//    if (word == "x") break;
+//    Words += word;
+
+//}
+
+//Console.WriteLine($"Total number of letters: {Words.Count()}");
+
 
 
 /*
@@ -185,5 +219,37 @@ Guess the number (between 1 and 100, or enter -1 to quit): 30
 Congratulations! You guessed the correct number in 4 tries.
 
 */
+
+int guessNumber;
+Int32 playerGuessNumber = 0;
+int i;
+
+guessNumber = new Random().Next(1, 100);
+for (i = 1; i <= 5; i++)
+{
+    Console.WriteLine("Guess the number (between 1 and 100, or enter -1 to quit): ");
+    playerGuessNumber = Convert.ToInt32(Console.ReadLine());
+    if (playerGuessNumber < 0)
+    {
+        Console.WriteLine($"Exiting");
+        return;
+    }
+    else if (playerGuessNumber == guessNumber)
+    {
+        Console.WriteLine($"Congratulations! You guessed the correct number in {i} tries.");
+        return;
+    }
+    else if (playerGuessNumber > guessNumber)
+    {
+        Console.WriteLine($"Too high!");
+    }
+    else if (playerGuessNumber < guessNumber)
+    {
+        Console.WriteLine($"Too low!");
+    }
+    //Console.WriteLine($"Cheat! it's {guessNumber}");
+}
+Console.WriteLine($"5 tries is up, you can't find the number, Game Over !!! Exiting");
+return;
 
 
