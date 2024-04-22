@@ -21,6 +21,18 @@ Below 18.5    Underweight
 23 - 27.5     Overweight
 Above 27.5    Obese
 */
+//Console.WriteLine("Enter your Weight (in Kg): ");
+//float weight = float.Parse(Console.ReadLine());
+//Console.WriteLine("Enter your Height (meter): ");
+//float height = float.Parse(Console.ReadLine());
+//float BMI = weight / (height * height);
+//string healthCategory = "unknown";
+//if (BMI < 18.5) healthCategory = "Underweight";
+//if (BMI >= 18.5 && BMI < 23) healthCategory = "Normal weight";
+//if (BMI >= 23 && BMI < 27.5) healthCategory = "Overweight";
+//if (BMI > 27.5) healthCategory = "Obese";
+
+//Console.WriteLine($"Your weight is {weight}\nYour height is {height}\nYour BMI is: {BMI}\nAnd Your are: {healthCategory}");
 
 
 
@@ -51,7 +63,34 @@ Write a C# program to:
 - calculate and display the discount given (in percentage)
 - calculate and display the discount amount
 */
+Console.Write("Enter the amount spent ($): ");
+double amountSpent = Convert.ToDouble(Console.ReadLine());
 
+// Calculate discount rate
+double discountRate;
+if (amountSpent <= 100)
+{
+    discountRate = 0;
+}
+else if (amountSpent <= 500)
+{
+    discountRate = 5;
+}
+else if (amountSpent <= 1000)
+{
+    discountRate = 10;
+}
+else
+{
+    discountRate = 20;
+}
+
+// Calculate discount amount
+double discountAmount = (amountSpent * discountRate) / 100;
+
+// Display discount rate and discount amount
+Console.WriteLine($"Discount rate: {discountRate}%");
+Console.WriteLine($"Discount amount: ${discountAmount:F2}");
 
 
 
