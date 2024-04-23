@@ -469,6 +469,15 @@
 //Expected Output:
 //The volume of the sphere is: 113.09733552923255
 
+//// Prompt user to enter the radius of the sphere
+//Console.Write("Enter the radius of the sphere: ");
+//double radius = Convert.ToDouble(Console.ReadLine());
+
+//// Calculate the volume of the sphere using the formula
+//double volume = (4.0 / 3.0) * Math.PI * Math.Pow(radius, 3);
+
+//// Print the calculated volume
+//Console.WriteLine("The volume of the sphere is: " + volume);
 
 //Part 17
 
@@ -480,6 +489,22 @@
 //Enter the starting position: 5
 //Expected Output:
 //The index of 'o' starting from position 5 is: 7
+
+//// Prompt the user to enter the string, character, and starting position
+//Console.Write("Enter the string: ");
+//string inputString = Console.ReadLine();
+
+//Console.Write("Enter the character to find: ");
+//char characterToFind = Console.ReadLine()[0]; // Read the first character only
+
+//Console.Write("Enter the starting position: ");
+//int startingPosition = Convert.ToInt32(Console.ReadLine());
+
+//// Find the index of the character starting from the specified position
+//int index = inputString.IndexOf(characterToFind, startingPosition);
+
+//// Print the index
+//Console.WriteLine($"The index of '{characterToFind}' starting from position {startingPosition} is: {index}");
 
 
 //Part 18
@@ -493,6 +518,34 @@
 //The string after removing 'p' is: ale
 
 
+using System;
+
+//class Program
+//{
+//    static void Main()
+//    {
+//        // Prompt the user to enter the string and character to remove
+//        Console.Write("Enter the string: ");
+//        string inputString = Console.ReadLine();
+
+//        Console.Write("Enter the character to remove: ");
+//        char charToRemove = Console.ReadLine()[0]; // Read the first character only
+
+//        // Remove the character from the string
+//        string resultString = RemoveCharacter(inputString, charToRemove);
+
+//        // Print the result
+//        Console.WriteLine($"The string after removing '{charToRemove}' is: {resultString}");
+//    }
+
+//    static string RemoveCharacter(string input, char charToRemove)
+//    {
+//        // Replace all occurrences of the character with an empty string
+//        return input.Replace(charToRemove.ToString(), "");
+//    }
+//}
+
+
 //Part 19
 
 //Replace all occurrences of a character in a string with another character. Given string = "banana", replace 'a' with 'o' and print the result.
@@ -503,6 +556,37 @@
 //Enter the character to replace with: o
 //Expected Output:
 //The string after replacing 'a' with 'o' is: bonono
+
+//using System;
+
+//class Program
+//{
+//    static void Main()
+//    {
+//        // Prompt the user to enter the string, character to replace, and character to replace with
+//        Console.Write("Enter the string: ");
+//        string inputString = Console.ReadLine();
+
+//        Console.Write("Enter the character to replace: ");
+//        char charToReplace = Console.ReadLine()[0]; // Read the first character only
+
+//        Console.Write("Enter the character to replace with: ");
+//        char replacementChar = Console.ReadLine()[0]; // Read the first character only
+
+//        // Replace all occurrences of the character in the string
+//        string resultString = ReplaceCharacter(inputString, charToReplace, replacementChar);
+
+//        // Print the result
+//        Console.WriteLine($"The string after replacing '{charToReplace}' with '{replacementChar}' is: {resultString}");
+//    }
+
+//    static string ReplaceCharacter(string input, char charToReplace, char replacementChar)
+//    {
+//        // Replace all occurrences of the character with the replacement character
+//        return input.Replace(charToReplace, replacementChar);
+//    }
+//}
+
 
 
 //Part 20
@@ -516,3 +600,32 @@
 //Expected Output:
 //The substring from index 3 to 7 is: lo w
 
+//using System;
+
+//class Program
+//{
+//    static void Main()
+//    {
+//        // Prompt the user to enter the string, start index, and end index
+//        Console.Write("Enter the string: ");
+//        string inputString = Console.ReadLine();
+
+//        Console.Write("Enter the start index: ");
+//        int startIndex = Convert.ToInt32(Console.ReadLine());
+
+//        Console.Write("Enter the end index: ");
+//        int endIndex = Convert.ToInt32(Console.ReadLine());
+
+//        // Extract the substring based on the start and end indices
+//        string resultSubstring = ExtractSubstring(inputString, startIndex, endIndex);
+
+//        // Print the result
+//        Console.WriteLine($"The substring from index {startIndex} to {endIndex} is: {resultSubstring}");
+//    }
+
+//    static string ExtractSubstring(string input, int startIndex, int endIndex)
+//    {
+//        // Use Substring() method to extract the substring
+//        return input.Substring(startIndex, endIndex - startIndex + 1);
+//    }
+//}
