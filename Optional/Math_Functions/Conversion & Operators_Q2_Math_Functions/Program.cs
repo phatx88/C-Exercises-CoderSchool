@@ -1,4 +1,4 @@
-﻿Console.WriteLine("Enter the first number: ");
+﻿//Console.WriteLine("Enter the first number: ");
 //Part 1
 // Use the Math class to calculate the minimum of two numbers.
 // Hint: Use the Min method of the Math class.

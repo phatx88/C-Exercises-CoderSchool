@@ -3,6 +3,23 @@
 // Create a user-defined function to display a welcome message.
 // Hint: Define a function named DisplayWelcomeMessage() that prints the welcome message to the console.
 
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Call the DisplayWelcomeMessage function
+        DisplayWelcomeMessage();
+    }
+
+    // User-defined function to display a welcome message
+    static void DisplayWelcomeMessage()
+    {
+        Console.WriteLine("Welcome to our program!");
+    }
+}
+
 //---------------------------------------------------------------------
 // Part 2: Personalized Welcome Message
 // Create a user-defined function with parameters to personalize a welcome message.

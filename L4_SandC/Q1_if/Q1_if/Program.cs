@@ -1,36 +1,236 @@
-﻿//Part 1
+﻿
+
+//Part 1
 // Get two inputs from the userds and store them in two variables and use and if statement to check if the two inputs are equal and print out a message to the console.
 // Hint: You can use the == operator to check if two values are equal.
 
+//using System;
 
-static void Main()
-{
+//class Program
+//{
+//    static void Main()
+//    {
+//        // Prompt the user to enter the first input
+//        Console.Write("Enter the first input: ");
+//        string input1 = Console.ReadLine();
 
-}
+//        // Prompt the user to enter the second input
+//        Console.Write("Enter the second input: ");
+//        string input2 = Console.ReadLine();
+
+//        // Check if the two inputs are equal
+//        if (input1 == input2)
+//        {
+//            Console.WriteLine("The two inputs are equal.");
+//        }
+//        else
+//        {
+//            Console.WriteLine("The two inputs are not equal.");
+//        }
+//    }
+//}
+
 
 //Part 2
 // Get two inputs from the user and store them in two variables and use an if statement to check if the first input is greater than the second input and print out a message to the console.
 // Hint: You can use the > operator to check if the first input is greater than the second input.
 
+//using System;
+
+//class Program
+//{
+//    static void Main()
+//    {
+//        // Prompt the user to enter the first input
+//        Console.Write("Enter the first input: ");
+//        string input1 = Console.ReadLine();
+
+//        // Prompt the user to enter the second input
+//        Console.Write("Enter the second input: ");
+//        string input2 = Console.ReadLine();
+
+//        // Check if the first input is greater than the second input
+//        if (input1.CompareTo(input2) > 0)
+//        {
+//            Console.WriteLine("The first input is greater than the second input.");
+//        }
+//        else
+//        {
+//            Console.WriteLine("The first input is not greater than the second input.");
+//        }
+//    }
+//}
+
+
+
 //Part 3
 // Get two inputs from the user and store them in two variables and use an if statement to check if the first input is less than the second input and print out a message to the console.
 // Hint: You can use the < operator to check if the first input is less than the second input.
+
+//using System;
+
+//class Program
+//{
+//    static void Main()
+//    {
+//        // Prompt the user to enter the first input
+//        Console.Write("Enter the first input: ");
+//        string input1 = Console.ReadLine();
+
+//        // Prompt the user to enter the second input
+//        Console.Write("Enter the second input: ");
+//        string input2 = Console.ReadLine();
+
+//        // Compare the two strings
+//        if (input1.CompareTo(input2) < 0)
+//        {
+//            Console.WriteLine("The first input is less than the second input.");
+//        }
+//        else
+//        {
+//            Console.WriteLine("The first input is not less than the second input.");
+//        }
+//    }
+//}
+
+
 
 //Part 4
 // Get two inputs from the user and store them in two variables and use an if statement to check if the first input is not equal to the second input and print out a message to the console.
 // Hint: You can use the != operator to check if two values are not equal.
 
+//using System;
+
+//class Program
+//{
+//    static void Main()
+//    {
+//        // Prompt the user to enter the first input
+//        Console.Write("Enter the first input: ");
+//        string input1 = Console.ReadLine();
+
+//        // Prompt the user to enter the second input
+//        Console.Write("Enter the second input: ");
+//        string input2 = Console.ReadLine();
+
+//        // Check if the first input is not equal to the second input
+//        if (input1 != input2)
+//        {
+//            Console.WriteLine("The first input is not equal to the second input.");
+//        }
+//        else
+//        {
+//            Console.WriteLine("The first input is equal to the second input.");
+//        }
+//    }
+//}
+
+
 //Part 5
 // Get two inputs from the user and store them in two variables and use an if statement to check if the first input is greater than or equal to the second input and print out a message to the console.
 // Hint: You can use the >= operator to check if the first input is greater than or equal to the second input.
+
+//using System;
+
+//class Program
+//{
+//    static void Main()
+//    {
+//        // Prompt the user to enter the first input
+//        Console.Write("Enter the first input: ");
+//        string input1 = Console.ReadLine();
+
+//        // Prompt the user to enter the second input
+//        Console.Write("Enter the second input: ");
+//        string input2 = Console.ReadLine();
+
+//        // Compare the two strings
+//        if (input1.CompareTo(input2) >= 0)
+//        {
+//            Console.WriteLine("The first input is greater than or equal to the second input.");
+//        }
+//        else
+//        {
+//            Console.WriteLine("The first input is not greater than or equal to the second input.");
+//        }
+//    }
+//}
+
 
 //Part 6
 // Get two inputs from the user and store them in two variables and use an if statement to check if the first input is less than or equal to the second input and print out a message to the console.
 // Hint: You can use the <= operator to check if the first input is less than or equal to the second input.
 
+//using System;
+
+//class Program
+//{
+//    static void Main()
+//    {
+//        // Prompt the user to enter the first input
+//        Console.Write("Enter the first input: ");
+//        string input1 = Console.ReadLine();
+
+//        // Prompt the user to enter the second input
+//        Console.Write("Enter the second input: ");
+//        string input2 = Console.ReadLine();
+
+//        // Compare the two strings
+//        int comparisonResult = string.Compare(input1, input2);
+
+//        // Check if the first input is less than or equal to the second input
+//        if (comparisonResult <= 0)
+//        {
+//            Console.WriteLine("The first input is less than or equal to the second input.");
+//        }
+//        else
+//        {
+//            Console.WriteLine("The first input is not less than or equal to the second input.");
+//        }
+//    }
+//}
+
+
 //Part 7
 // Create a math quiz that asks the user a math question and checks if the user's answer is correct. If the user's answer is correct, print out a message to the console. If the user's answer is incorrect, print out a different message to the console.
 // Hint: You can use the Console.ReadLine() method to get input from the user and use an if statement to check if the user's answer is correct.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Generate random numbers for the quiz
+        Random random = new Random();
+        int number1 = random.Next(1, 11); // Generates a random number between 1 and 10
+        int number2 = random.Next(1, 11); // Generates a random number between 1 and 10
+
+        // Display the math question
+        Console.WriteLine($"What is the sum of {number1} and {number2}?");
+
+        // Get the user's answer
+        Console.Write("Your answer: ");
+        int userAnswer;
+        if (!int.TryParse(Console.ReadLine(), out userAnswer))
+        {
+            Console.WriteLine("Invalid input. Please enter a valid integer.");
+            return;
+        }
+
+        // Check if the user's answer is correct
+        int correctAnswer = number1 + number2;
+        if (userAnswer == correctAnswer)
+        {
+            Console.WriteLine("Congratulations! Your answer is correct.");
+        }
+        else
+        {
+            Console.WriteLine($"Sorry, your answer is incorrect. The correct answer is {correctAnswer}.");
+        }
+    }
+}
+
 
 
 //Part 8

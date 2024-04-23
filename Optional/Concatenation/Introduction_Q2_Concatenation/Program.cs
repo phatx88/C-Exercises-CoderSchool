@@ -12,6 +12,7 @@
 //Hint: You can assign a string to a variable using the = operator.
 //Hint: You can use the + operator to concatenate two strings.
 //Hint: You can use the Console.WriteLine() method to output the result.
+
 //string playerFirstName, playerLastName;
 //playerFirstName = "John";
 //playerLastName = "Ullysee";
@@ -23,6 +24,7 @@
 //Hint: You can use the Console.ReadLine() method to get a string from the user.
 //Hint: You can use the Console.WriteLine() method to prompt the user for input.
 //Hint: You can use the Console.WriteLine() method to output the result.
+
 //Console.WriteLine("Please enter your first name: ");
 //string playerFirstName = Console.ReadLine();
 //Console.WriteLine("Please enter your last name: ");
@@ -35,6 +37,8 @@
 //Modify the program so that it concatenates three strings instead of two (clan name).
 //Hint: You can use the + operator to concatenate three strings.
 //Hint: You can use the Console.WriteLine() method to output the result.
+
+
 //Console.WriteLine("Please enter your first name: ");
 //string playerFirstName = Console.ReadLine();
 //Console.WriteLine("Please enter your last name: ");
@@ -50,13 +54,14 @@
 //Hint: You can use the Console.ReadLine() method to get an integer from the user.
 //Hint: You can use the int.Parse() method to convert a string to an integer.
 //Hint: You can use the Console.WriteLine() method to output the result.
-Console.WriteLine("Please enter your first name: ");
-string playerFirstName = Console.ReadLine();
-Console.WriteLine("Please enter your last name: ");
-string playerLastName = Console.ReadLine();
-Console.WriteLine("Please enter your age: ");
-int playerAge = int.Parse(Console.ReadLine());
-Console.WriteLine($"your name is : {playerFirstName + " " + playerLastName + " of age " + playerAge}");
+
+//Console.WriteLine("Please enter your first name: ");
+//string playerFirstName = Console.ReadLine();
+//Console.WriteLine("Please enter your last name: ");
+//string playerLastName = Console.ReadLine();
+//Console.WriteLine("Please enter your age: ");
+//int playerAge = int.Parse(Console.ReadLine());
+//Console.WriteLine($"your name is : {playerFirstName + " " + playerLastName + " of age " + playerAge}");
 
 
 
