@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Non-Primitive Data Types_Q1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Non-Primitive Data Types_Q2_Strings", "..\Non-Primitive Data Types_Q2_Strings\Non-Primitive Data Types_Q2_Strings\Non-Primitive Data Types_Q2_Strings.csproj", "{EE1AF467-C5FF-49C3-AD78-F71C279D78AA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Q1_Lists", "..\..\L5_NP_Data_types\Q1_Lists\Q1_Lists\Q1_Lists.csproj", "{73AAC8B7-6DA2-4245-B8D5-9A8B4F4A584A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{EE1AF467-C5FF-49C3-AD78-F71C279D78AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE1AF467-C5FF-49C3-AD78-F71C279D78AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE1AF467-C5FF-49C3-AD78-F71C279D78AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73AAC8B7-6DA2-4245-B8D5-9A8B4F4A584A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73AAC8B7-6DA2-4245-B8D5-9A8B4F4A584A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73AAC8B7-6DA2-4245-B8D5-9A8B4F4A584A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73AAC8B7-6DA2-4245-B8D5-9A8B4F4A584A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
