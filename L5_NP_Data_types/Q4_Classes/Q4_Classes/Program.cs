@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Numerics;
-
+using System.Collections.Generic;
+using System.Linq;
 class Player
 {
     // Properties
@@ -98,7 +99,88 @@ class Enemy
     }
 }
 
+class Inventory
+{
+    // Properties
+    public int Capacity { get; private set; }
+    private List<Item> items;
 
+    // Constructor
+    public Inventory(int capacity)
+    {
+        Capacity = capacity;
+        items = new List<Item>();
+    }
+
+    // Method to add an item to the inventory
+    public void AddItem(Item item)
+    {
+        if (items.Count < Capacity)
+        {
+            items.Add(item);
+            Console.WriteLine($"Added {item.Name} to the inventory.");
+        }
+        else
+        {
+            Console.WriteLine("Inventory is full. Cannot add more items.");
+        }
+    }
+
+    // Method to remove an item from the inventory
+    public void RemoveItem(Item item)
+    {
+        if (items.Contains(item))
+        {
+            items.Remove(item);
+            Console.WriteLine($"Removed {item.Name} from the inventory.");
+        }
+        else
+        {
+            Console.WriteLine($"{item.Name} is not in the inventory.");
+        }
+    }
+
+    // Method to check if an item exists in the inventory
+    public bool HasItem(string itemName)
+    {
+        return items.Any(item => item.Name.ToLower() == itemName.ToLower());
+    }
+
+    // Method to display details of an item in the inventory
+    public void DisplayItemDetails(string itemName)
+    {
+        var item = items.FirstOrDefault(i => i.Name.ToLower() == itemName.ToLower());
+        if (item != null)
+        {
+            Console.WriteLine($"Name: {item.Name}");
+            Console.WriteLine($"Description: {item.Description}");
+            Console.WriteLine($"Quantity: {item.Quantity}");
+        }
+        else
+        {
+            Console.WriteLine($"Item '{itemName}' not found in the inventory.");
+        }
+    }
+
+
+}
+
+// Item class representing items that can be stored in the inventory
+class Item
+{
+    // Properties
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public int Quantity { get; set; }
+
+    // Constructor
+    public Item(string name, string description, int quantity)
+    {
+        Name = name;
+        Description = description;
+        Quantity = quantity;
+    }
+}
 
 class Potion
 {
@@ -188,6 +270,8 @@ class Quest
 }
 
 
+
+
 //------------------------ Class program to run above classes ---------------------------------------------//
 class Program
 {
@@ -202,108 +286,204 @@ class Program
         // Creating a Potion object
         Potion potion = new Potion("Healing Potion", 20, 5); // Increase the healing power for demonstration
 
-        //Start Quest
-        Console.WriteLine($"Start Quest");
-        goblinQuest.StartQuest();
+        // Gold for player
+        int gold = 0;
 
-        // Simulating killing goblins
-        for (int i = 0; i < 10; i++)
+        bool gameActive = true;
+        while (gameActive)
         {
-            Console.WriteLine($"Turn {i + 1}: A goblin appears!");
+            //Start Quest or Visit Merchant
+            Console.WriteLine($"Start Quest");
+            Console.WriteLine("Options:");
+            Console.WriteLine("1. Take Quest");
+            Console.WriteLine("2. Go to merchant");
+            Console.WriteLine("3. Exit game");
+            Console.Write("Enter your choice: ");
+            string questOption = Console.ReadLine();
 
-            // Create a new goblin for each turn
-            Enemy goblin = new Enemy("Goblin", 50, 30, 5);
-
-            // Simulate player's and enemy's actions
-            bool goblinDefeated = false;
-            bool playerDefeated = false;
-            while (!goblinDefeated && !playerDefeated)
+            switch (questOption)
             {
-                // Player's turn
-                Console.WriteLine($"Enter 'attack' to attack the goblin or 'potion' to take a potion:");
-                string input = Console.ReadLine();
+                case "1":
+                    goblinQuest.StartQuest();
+                    // Simulating killing goblins
+                    for (int i = 0; i < 10; i++)
+                    {
+                        Console.WriteLine("****************************************************************");
+                        Console.WriteLine($"Turn {i + 1}: A goblin appears!");
 
-                if (input.ToLower() == "attack")
+                        // Create a new goblin for each turn
+                        Enemy goblin = new Enemy("Goblin", 50, 30, 5);
+
+                        // Simulate player's and enemy's actions
+                        bool goblinDefeated = false;
+                        bool playerDefeated = false;
+                        while (!goblinDefeated && !playerDefeated)
+                        {
+                            // Player's turn
+                            // Displaying player's HP after consuming the potion
+                            Console.WriteLine($"{player.Name}'s HP: {player.HP} - Healing Potion: {potion.Quantity}");
+                            Console.WriteLine($"Enter 'attack' to attack the goblin or 'potion' to take a potion:");
+                            string input = Console.ReadLine();
+
+                            if (input.ToLower() == "attack")
+                            {
+                                // Determine if it's a critical hit
+                                bool isCritical = new Random().Next(100) < 10; // Assuming a 10% chance for critical hit
+
+                                // Calculate damage
+                                int baseDamage = player.AttackPower - goblin.Defense;
+                                int damage = isCritical ? baseDamage * 2 : baseDamage;
+
+                                // Apply damage to goblin
+                                goblin.ReceiveDamage(Math.Max(damage, 0));
+
+                                if (goblin.HP > 0)
+                                {
+                                    // Goblin is still alive
+                                    Console.WriteLine($"You hit the goblin for {(isCritical ? "critical " : "")}{damage} damage. Goblin's HP: {goblin.HP}");
+                                }
+                                else
+                                {
+                                    // Goblin is defeated
+                                    Console.WriteLine($"You hit the goblin for {(isCritical ? "critical " : "")}{damage} damage. You defeated the goblin!");
+                                    goblinDefeated = true;
+                                    gold += 10;
+                                    player.GainXP(30); // Gain 30 XP for defeating the goblin
+                                    goblinQuest.GoblinKilled(); // Progress the quest
+                                }
+                            }
+                            else if (input.ToLower() == "potion")
+                            {
+                                if (potion.Quantity > 0)
+                                {
+                                    // Apply the potion to the player character
+                                    potion.ApplyPotion(player);
+
+                                    // Displaying player's HP after consuming the potion
+                                    Console.WriteLine($"{player.Name}'s HP: {player.HP}");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("You don't have any potions left!");
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid input. Please enter 'attack' to attack the goblin or 'potion' to take a potion.");
+                            }
+
+                            // Check if player is defeated after taking their turn
+                            if (player.HP <= 0)
+                            {
+                                Console.WriteLine("You have been defeated by the goblin.");
+                                playerDefeated = true;
+                            }
+
+                            // Enemy's turn (if player is still alive)
+                            if (!goblinDefeated && !playerDefeated)
+                            {
+                                // Simulate enemy's attack
+                                if (new Random().Next(100) < 30) // 30% chance to miss
+                                {
+                                    Console.WriteLine("The goblin's attack missed!");
+                                }
+                                else
+                                {
+                                    int damage = Math.Max(goblin.AttackPower - player.Defense, 0);
+                                    player.HP -= damage;
+                                    Console.WriteLine($"The goblin hits you for {damage} damage. {player.Name}'s HP: {player.HP}");
+                                }
+
+                                // Check if player is defeated after enemy's attack
+                                if (player.HP <= 0)
+                                {
+                                    Console.WriteLine("You have been defeated by the goblin.");
+                                    playerDefeated = true;
+                                }
+                            }
+                        }
+                    }
+
+                    // Claim the reward if quest is completed
+                    goblinQuest.ClaimReward();
+                    break;
+                case "2":
+                    VisitMerchant();
+                    break;
+                case "3":
+                    gameActive = false;
+                    Console.WriteLine("Exiting game...");
+                    break;
+                default:
+                    Console.WriteLine("Invalid option. Please try again.");
+                    break;
+            }
+        }
+
+        // Merchant function
+        void VisitMerchant()
+        {
+            bool merchantActive = true;
+            while (merchantActive)
+            {
+                Console.WriteLine("Merchant's Shop");
+                Console.WriteLine($"Player Gold: {gold} . Healing Potion: {potion.Quantity}");
+                Console.WriteLine("1. Buy Potion (20 gold)");
+                Console.WriteLine("2. Sell Potion (10 gold)");
+                Console.WriteLine("3. Exit");
+                Console.Write("Enter your choice: ");
+                string merchantChoice = Console.ReadLine();
+
+                switch (merchantChoice)
                 {
-                    // Determine if it's a critical hit
-                    bool isCritical = new Random().Next(100) < 10; // Assuming a 10% chance for critical hit
-
-                    // Calculate damage
-                    int baseDamage = player.AttackPower - goblin.Defense;
-                    int damage = isCritical ? baseDamage * 2 : baseDamage;
-
-                    // Apply damage to goblin
-                    goblin.ReceiveDamage(Math.Max(damage, 0));
-
-                    if (goblin.HP > 0)
-                    {
-                        // Goblin is still alive
-                        Console.WriteLine($"You hit the goblin for {(isCritical ? "critical " : "")}{damage} damage. Goblin's HP: {goblin.HP}");
-                    }
-                    else
-                    {
-                        // Goblin is defeated
-                        Console.WriteLine($"You hit the goblin for {(isCritical ? "critical " : "")}{damage} damage. You defeated the goblin!");
-                        goblinDefeated = true;
-                        player.GainXP(30); // Gain 30 XP for defeating the goblin
-                        goblinQuest.GoblinKilled(); // Progress the quest
-                    }
-                }
-                else if (input.ToLower() == "potion")
-                {
-                    if (potion.Quantity > 0)
-                    {
-                        // Apply the potion to the player character
-                        potion.ApplyPotion(player);
-
-                        // Displaying player's HP after consuming the potion
-                        Console.WriteLine($"{player.Name}'s HP: {player.HP}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("You don't have any potions left!");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input. Please enter 'attack' to attack the goblin or 'potion' to take a potion.");
-                }
-
-                // Check if player is defeated after taking their turn
-                if (player.HP <= 0)
-                {
-                    Console.WriteLine("You have been defeated by the goblin.");
-                    playerDefeated = true;
-                }
-
-                // Enemy's turn (if player is still alive)
-                if (!goblinDefeated && !playerDefeated)
-                {
-                    // Simulate enemy's attack
-                    if (new Random().Next(100) < 30) // 30% chance to miss
-                    {
-                        Console.WriteLine("The goblin's attack missed!");
-                    }
-                    else
-                    {
-                        int damage = Math.Max(goblin.AttackPower - player.Defense, 0);
-                        player.HP -= damage;
-                        Console.WriteLine($"The goblin hits you for {damage} damage. {player.Name}'s HP: {player.HP}");
-                    }
-
-                    // Check if player is defeated after enemy's attack
-                    if (player.HP <= 0)
-                    {
-                        Console.WriteLine("You have been defeated by the goblin.");
-                        playerDefeated = true;
-                    }
+                    case "1":
+                        BuyPotion();
+                        break;
+                    case "2":
+                        SellPotion();
+                        break;
+                    case "3":
+                        merchantActive = false;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid option. Please try again.");
+                        break;
                 }
             }
         }
 
-        // Claim the reward if quest is completed
-        goblinQuest.ClaimReward();
+        void BuyPotion()
+        {
+            if (gold >= 20)
+            {
+                gold -= 20;
+                potion.Quantity++;
+                Console.WriteLine($"You bought a potion. You now have {potion.Quantity} potions.");
+            }
+            else
+            {
+                Console.WriteLine("Not enough gold to buy a potion.");
+            }
+        }
+
+        void SellPotion()
+        {
+            if (potion.Quantity > 0)
+            {
+                gold += 10;
+                potion.Quantity--;
+                Console.WriteLine($"You sold a potion. You now have {potion.Quantity} potions.");
+            }
+            else
+            {
+                Console.WriteLine("You don't have any potions to sell.");
+            }
+        }
+
+       
     }
+
+
 }
 
 
