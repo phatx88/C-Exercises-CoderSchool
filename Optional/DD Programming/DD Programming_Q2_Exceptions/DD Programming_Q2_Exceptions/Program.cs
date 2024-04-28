@@ -53,11 +53,90 @@
 //Hint: Use the TryParse method to convert the input string to a number.
 //Hint:Use FormatException for non-numeric values and DivideByZeroException for division by zero.
 
+//using System;
+
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        try
+//        {
+//            // Prompt the user to input two numbers
+//            Console.Write("Enter the first number: ");
+//            string input1 = Console.ReadLine();
+//            Console.Write("Enter the second number: ");
+//            string input2 = Console.ReadLine();
+
+//            // Parse the input strings to numbers
+//            if (!double.TryParse(input1, out double number1) || !double.TryParse(input2, out double number2))
+//            {
+//                throw new FormatException("Non-numeric input detected.");
+//            }
+
+//            // Check if the second number is zero
+//            if (number2 == 0)
+//            {
+//                throw new DivideByZeroException("Division by zero is not allowed.");
+//            }
+
+//            // Perform the division
+//            double result = number1 / number2;
+//            Console.WriteLine($"Result of division: {result}");
+//        }
+//        catch (FormatException ex)
+//        {
+//            Console.WriteLine($"Error: {ex.Message}");
+//        }
+//        catch (DivideByZeroException ex)
+//        {
+//            Console.WriteLine($"Error: {ex.Message}");
+//        }
+//        catch (Exception ex)
+//        {
+//            Console.WriteLine($"An error occurred: {ex.Message}");
+//        }
+//    }
+//}
+
+
 
 //Part 2
 // Write a C# program that reads a string from the user and converts it to an integer. Handle the exception if the input cannot be parsed into an integer.
 //Hint: Use the TryParse method to convert the input string to an integer.
 //Hint: Use FormatException for invalid input.
+
+//using System;
+
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        try
+//        {
+//            // Prompt the user to enter a string
+//            Console.Write("Enter a string to convert to an integer: ");
+//            string input = Console.ReadLine();
+
+//            // Parse the input string to an integer
+//            if (!int.TryParse(input, out int number))
+//            {
+//                throw new FormatException("Invalid input. Please enter a valid integer.");
+//            }
+
+//            // Print the converted integer
+//            Console.WriteLine($"Converted integer: {number}");
+//        }
+//        catch (FormatException ex)
+//        {
+//            Console.WriteLine($"Error: {ex.Message}");
+//        }
+//        catch (Exception ex)
+//        {
+//            Console.WriteLine($"An error occurred: {ex.Message}");
+//        }
+//    }
+//}
+
 
 
 //Part 3
@@ -65,8 +144,88 @@
 //Hint: Use a try-catch block to catch the DivideByZeroException.
 
 
+//using System;
+
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        try
+//        {
+//            // Prompt the user to enter two numbers
+//            Console.Write("Enter the numerator: ");
+//            double numerator = double.Parse(Console.ReadLine());
+//            Console.Write("Enter the denominator: ");
+//            double denominator = double.Parse(Console.ReadLine());
+
+//            // Perform division
+//            double result = DivideNumbers(numerator, denominator);
+//            Console.WriteLine($"Result of division: {result}");
+//        }
+//        catch (DivideByZeroException ex)
+//        {
+//            Console.WriteLine($"Error: {ex.Message}");
+//        }
+//        catch (FormatException ex)
+//        {
+//            Console.WriteLine($"Error: {ex.Message}. Please enter valid numeric values.");
+//        }
+//        catch (Exception ex)
+//        {
+//            Console.WriteLine($"An error occurred: {ex.Message}");
+//        }
+//    }
+
+//    static double DivideNumbers(double numerator, double denominator)
+//    {
+//        if (denominator == 0)
+//        {
+//            throw new DivideByZeroException("Cannot divide by zero.");
+//        }
+
+//        return numerator / denominator;
+//    }
+//}
+
+
 //Part 4
 //Write a C# program that creates a method that takes a string as input and converts it to uppercase. Handle the NullReferenceException that occurs if the input string is null.
 //Hint: Use a try-catch block to catch the NullReferenceException.
 
+//using System;
+
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        try
+//        {
+//            // Prompt the user to enter a string
+//            Console.Write("Enter a string: ");
+//            string input = Console.ReadLine();
+
+//            // Convert the string to uppercase
+//            string result = ConvertToUpperCase(input);
+//            Console.WriteLine($"Uppercase string: {result}");
+//        }
+//        catch (NullReferenceException ex)
+//        {
+//            Console.WriteLine($"Error: {ex.Message}. Input string is null.");
+//        }
+//        catch (Exception ex)
+//        {
+//            Console.WriteLine($"An error occurred: {ex.Message}");
+//        }
+//    }
+
+//    static string ConvertToUpperCase(string input)
+//    {
+//        if (input == null)
+//        {
+//            throw new NullReferenceException("Input string cannot be null.");
+//        }
+
+//        return input.ToUpper();
+//    }
+//}
 
