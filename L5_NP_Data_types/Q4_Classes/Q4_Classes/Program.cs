@@ -272,6 +272,53 @@ class Quest
     }
 }
 
+class Spell
+{
+    // Properties
+    public string Name { get; set; }
+    public int Damage { get; set; }
+    public int ManaCost { get; set; }
+    public string Description { get; set; }
+
+    // Constructor
+    public Spell(string name, int damage, int manaCost, string description)
+    {
+        Name = name;
+        Damage = damage;
+        ManaCost = manaCost;
+        Description = description;
+    }
+
+    // Method to cast the spell
+    public void Cast(Player player, Enemy enemy)
+    {
+        // Check if player has enough mana to cast the spell
+        if (player.HP >= ManaCost)
+        {
+            // Deduct mana cost from player's mana
+            player.HP -= ManaCost;
+
+            // Apply spell damage to the enemy
+            enemy.ReceiveDamage(Damage);
+
+            // Display casting message
+            Console.WriteLine($"{player.Name} casts {Name} and deals {Damage} damage to {enemy.Name}.");
+        }
+        else
+        {
+            Console.WriteLine("Not enough mana to cast the spell.");
+        }
+    }
+
+    // Method to display spell details
+    public void DisplaySpellDetails()
+    {
+        Console.WriteLine($"Spell Name: {Name}");
+        Console.WriteLine($"Description: {Description}");
+        Console.WriteLine($"Damage: {Damage}");
+        Console.WriteLine($"Mana Cost: {ManaCost}");
+    }
+}
 
 
 
