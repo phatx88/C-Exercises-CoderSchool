@@ -5,6 +5,20 @@
 //Hint: You can use a while loop to print out the numbers 1 to 10 to the console.
 
 
+//using System;
+
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        int i = 1;
+//        while (i <= 10)
+//        {
+//            Console.WriteLine(i);
+//            i++;
+//        }
+//    }
+//}
 
 
 
@@ -12,6 +26,20 @@
 //Create a program that uses a while loop to print out the numbers 10 to 1 to the console.
 //Hint: You can use a while loop to print out the numbers 10 to 1 to the console.
 
+//using System;
+
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        int i = 10;
+//        while (i >= 1)
+//        {
+//            Console.WriteLine(i);
+//            i--;
+//        }
+//    }
+//}
 
 
 
@@ -19,6 +47,23 @@
 //Create a program that uses a while loop to print out the even numbers from 1 to 10 to the console.
 //Hint: You can use a while loop to print out the even numbers from 1 to 10 to the console.
 
+//using System;
+
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        int i = 1;
+//        while (i <= 10)
+//        {
+//            if (i % 2 == 0)
+//            {
+//                Console.WriteLine(i);
+//            }
+//            i++;
+//        }
+//    }
+//}
 
 
 
@@ -27,6 +72,23 @@
 //Create a program that uses a while loop to print out the odd numbers from 1 to 10 to the console.
 //Hint: You can use a while loop to print out the odd numbers from 1 to 10 to the console.
 
+//using System;
+
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        int i = 1;
+//        while (i <= 10)
+//        {
+//            if (i % 2 != 0)
+//            {
+//                Console.WriteLine(i);
+//            }
+//            i++;
+//        }
+//    }
+//}
 
 
 
@@ -43,6 +105,23 @@
 //....
 //5 * 10 = 50
 
+//using System;
+
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        Console.Write("Enter the number: ");
+//        int number = int.Parse(Console.ReadLine());
+
+//        int i = 0;
+//        while (i <= 10)
+//        {
+//            Console.WriteLine($"{number} * {i} = {number * i}");
+//            i++;
+//        }
+//    }
+//}
 
 
 
@@ -54,6 +133,26 @@
 //Expected Output:
 //The factorial of 5 is: 120
 
+//using System;
+
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        Console.Write("Enter the number: ");
+//        int number = int.Parse(Console.ReadLine());
+
+//        int factorial = 1;
+//        int i = 1;
+//        while (i <= number)
+//        {
+//            factorial *= i;
+//            i++;
+//        }
+
+//        Console.WriteLine($"The factorial of {number} is: {factorial}");
+//    }
+//}
 
 
 
@@ -67,6 +166,33 @@
 //1 + 2 + 3 + 4 + 5 = 15
 
 
+//using System;
+
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        Console.Write("Enter the number: ");
+//        int n = int.Parse(Console.ReadLine());
+
+//        int sum = 0;
+//        int i = 1;
+//        string series = "";
+
+//        while (i <= n)
+//        {
+//            sum += i;
+//            series += i;
+//            if (i < n)
+//            {
+//                series += " + ";
+//            }
+//            i++;
+//        }
+
+//        Console.WriteLine($"{series} = {sum}");
+//    }
+//}
 
 
 
@@ -84,6 +210,27 @@
 //1x10 = 10, 2x10 = 20, 3x10 = 30, 4x10 = 40, 5x10 = 50, 6x10 = 60, 7x10 = 70, 8x10 = 80
 
 
+//using System;
+
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        Console.Write("Input upto the table number starting from 1: ");
+//        int n = int.Parse(Console.ReadLine());
+
+//        Console.WriteLine($"Multiplication table from 1 to {n}");
+
+//        for (int i = 1; i <= 10; i++)
+//        {
+//            for (int j = 1; j <= n; j++)
+//            {
+//                Console.Write($"{j}x{i} = {j * i}, ");
+//            }
+//            Console.WriteLine();
+//        }
+//    }
+//}
 
 
 
@@ -98,6 +245,29 @@
 //12
 //123
 
+//using System;
+
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        Console.Write("Input number of rows: ");
+//        int rows = int.Parse(Console.ReadLine());
+
+//        int i = 1;
+//        while (i <= rows)
+//        {
+//            int j = 1;
+//            while (j <= i)
+//            {
+//                Console.Write(j);
+//                j++;
+//            }
+//            Console.WriteLine();
+//            i++;
+//        }
+//    }
+//}
 
 
 
@@ -115,6 +285,29 @@
 //**
 //***
 
+//using System;
+
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        Console.Write("Input number of rows: ");
+//        int rows = int.Parse(Console.ReadLine());
+
+//        int i = 1;
+//        while (i <= rows)
+//        {
+//            int j = 1;
+//            while (j <= i)
+//            {
+//                Console.Write("*");
+//                j++;
+//            }
+//            Console.WriteLine();
+//            i++;
+//        }
+//    }
+//}
 
 
 
@@ -132,6 +325,44 @@
 // 7 8 9 10
 //11 12 13 14 15
 
+//using System;
+
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        Console.Write("Input number of rows: ");
+//        int rows = int.Parse(Console.ReadLine());
+
+//        int num = 1;
+//        int spaces = rows - 1;
+
+//        int i = 1;
+//        while (i <= rows)
+//        {
+//            // Print spaces
+//            int j = 1;
+//            while (j <= spaces)
+//            {
+//                Console.Write(" ");
+//                j++;
+//            }
+
+//            // Print numbers
+//            int k = 1;
+//            while (k <= i)
+//            {
+//                Console.Write(num + " ");
+//                num++;
+//                k++;
+//            }
+
+//            Console.WriteLine();
+//            spaces--;
+//            i++;
+//        }
+//    }
+//}
 
 
 ////////////////Do While Loop////////////////
