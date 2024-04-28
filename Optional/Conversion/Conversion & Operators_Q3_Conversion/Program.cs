@@ -20,6 +20,45 @@
 //Your BMI is 22.2
 //You are Normal
 
+//using System;
+
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        // Prompt the user to enter their height in meters
+//        Console.Write("Enter your height in meters: ");
+//        double height = double.Parse(Console.ReadLine());
+
+//        // Prompt the user to enter their weight in kilograms
+//        Console.Write("Enter your weight in kilograms: ");
+//        double weight = double.Parse(Console.ReadLine());
+
+//        // Calculate the BMI
+//        double bmi = weight / (height * height);
+
+//        // Display the calculated BMI
+//        Console.WriteLine($"Your BMI is {bmi}");
+
+//        // Display message based on BMI category
+//        if (bmi < 18.5)
+//        {
+//            Console.WriteLine("You are Underweight");
+//        }
+//        else if (bmi < 25)
+//        {
+//            Console.WriteLine("You are Normal");
+//        }
+//        else if (bmi < 30)
+//        {
+//            Console.WriteLine("You are Overweight");
+//        }
+//        else
+//        {
+//            Console.WriteLine("You are Obese");
+//        }
+//    }
+//}
 
 
 //Part 2
@@ -39,6 +78,54 @@
 //Your BMI is 22.1
 //You are Normal
 
+//using System;
+
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        // Prompt the user to enter their height in feet
+//        Console.Write("Enter your height in feet: ");
+//        int heightFeet = int.Parse(Console.ReadLine());
+
+//        // Prompt the user to enter their height in inches
+//        Console.Write("Enter your height in inches: ");
+//        int heightInches = int.Parse(Console.ReadLine());
+
+//        // Convert height to inches
+//        int totalHeightInches = heightFeet * 12 + heightInches;
+
+//        // Prompt the user to enter their weight in pounds
+//        Console.Write("Enter your weight in pounds: ");
+//        double weightPounds = double.Parse(Console.ReadLine());
+
+//        // Calculate the BMI
+//        double bmi = (weightPounds * 703) / (totalHeightInches * totalHeightInches);
+
+//        // Display the calculated BMI
+//        Console.WriteLine($"Your BMI is {bmi}");
+
+//        // Display message based on BMI category
+//        if (bmi < 18.5)
+//        {
+//            Console.WriteLine("You are Underweight");
+//        }
+//        else if (bmi < 25)
+//        {
+//            Console.WriteLine("You are Normal");
+//        }
+//        else if (bmi < 30)
+//        {
+//            Console.WriteLine("You are Overweight");
+//        }
+//        else
+//        {
+//            Console.WriteLine("You are Obese");
+//        }
+//    }
+//}
+
+
 //Part 3
 
 //In a game, the player's score is stored as an integer, but you need to display it with one decimal place. Convert the player's score from an integer to a double and print the result.
@@ -47,12 +134,48 @@
 //Player's Score: 100
 //Player's Score with one decimal place: 100.0
 
+//using System;
+
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        // Test Data: Player's Score
+//        int playerScore = 100;
+
+//        // Convert the player's score to a double with one decimal place
+//        double playerScoreWithDecimal = (double)playerScore;
+
+//        // Print the result
+//        Console.WriteLine($"Player's Score with one decimal place: {playerScoreWithDecimal:F1}");
+//    }
+//}
+
+
 //Part 4
 //In a game, the player's health is stored as a double, but you need to display it as a percentage (integer value). Convert the player's health from a double to an integer representing a percentage and print the result.
 
 //Test Data
 //Player's Health: 0.75
 //Player's Health as a percentage: 75%
+
+//using System;
+
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        // Test Data: Player's Health
+//        double playerHealth = 0.75;
+
+//        // Convert the player's health to a percentage
+//        int playerHealthPercentage = (int)(playerHealth * 100);
+
+//        // Print the result
+//        Console.WriteLine($"Player's Health as a percentage: {playerHealthPercentage}%");
+//    }
+//}
+
 
 
 //Part 5
@@ -62,6 +185,24 @@
 //Test Data
 //Player's Coins: 123.45
 //Player's Coins as an integer: 123
+
+//using System;
+
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        // Test Data: Player's Coins
+//        double playerCoins = 123.45;
+
+//        // Convert the player's coins to an integer (rounded down)
+//        int playerCoinsInteger = (int)playerCoins;
+
+//        // Print the result
+//        Console.WriteLine($"Player's Coins as an integer: {playerCoinsInteger}");
+//    }
+//}
+
 
 //Part 6
 
@@ -74,5 +215,21 @@
 //Player's Progress as a string: Completed
 
 
+//using System;
+
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        // Test Data: Player's Progress
+//        bool playerProgress = true;
+
+//        // Convert the player's progress to a string representing the status
+//        string playerProgressString = playerProgress ? "Completed" : "Incomplete";
+
+//        // Print the result
+//        Console.WriteLine($"Player's Progress as a string: {playerProgressString}");
+//    }
+//}
 
 
